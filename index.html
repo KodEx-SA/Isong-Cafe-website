@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isong Cafe - Bar & Grill | Mabeskraal, Rustenburg</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta name="description" content="Welcome to Isong Cafe, your premier bar and grill in Mabeskraal, Rustenburg. Enjoy great beer, cozy fireplace, and delicious food.">
+    <style>
+        /* Animation for mobile menu slide-in */
+        @keyframes slideIn {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+        @keyframes slideOut {
+            from { transform: translateX(0); }
+            to { transform: translateX(100%); }
+        }
+        .mobile-menu-open {
+            animation: slideIn 0.3s ease-in-out forwards;
+        }
+        .mobile-menu-close {
+            animation: slideOut 0.3s ease-in-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-gray-800 text-white shadow-lg fixed top-0 w-full z-20">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="#" class="text-2xl font-bold">Isong Cafe</a>
+                <div id="desktop-menu" class="hidden md:flex space-x-6">
+                    <a href="#about" class="nav-link hover:text-orange-400 transition">About</a>
+                    <a href="#services" class="nav-link hover:text-orange-400 transition">Services</a>
+                    <a href="#menu" class="nav-link hover:text-orange-400 transition">Highlights</a>
+                    <a href="#contact" class="nav-link hover:text-orange-400 transition">Contact</a>
+                </div>
+                <button id="menu-toggle" class="md:hidden focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-3/4 max-w-sm bg-gray-800 text-white z-30 hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-6">
+            <button id="menu-close" class="absolute top-4 right-4 focus:outline-none">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+            <a href="#about" class="nav-link text-xl hover:text-orange-400 transition">About</a>
+            <a href="#services" class="nav-link text-xl hover:text-orange-400 transition">Services</a>
+            <a href="#menu" class="nav-link text-xl hover:text-orange-400 transition">Highlights</a>
+            <a href="#contact" class="nav-link text-xl hover:text-orange-400 transition">Contact</a>
+        </div>
+    </div>
+
+    <!-- Overlay for Mobile Menu -->
+    <div id="mobile-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-20 hidden"></div>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-gray-800 to-orange-900 text-white py-20 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4">Welcome to Isong Cafe</h1>
+            <p class="text-xl md:text-2xl mb-6">Your Cozy Bar & Grill in Mabeskraal</p>
+            <div class="flex justify-center items-center mb-8">
+                <i class="fas fa-star text-yellow-400 mr-1"></i>
+                <span class="text-2xl">4.3 (40 reviews)</span>
+            </div>
+            <a href="#contact" class="bg-orange-500 hover:bg-orange-600 px-8 py-3 rounded-lg text-lg font-semibold transition">Get Directions</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- About Section -->
+        <section id="about" class="mb-16">
+            <h2 class="text-4xl font-bold mb-6 text-center text-gray-800">About Isong Cafe</h2>
+            <div class="max-w-4xl mx-auto text-center">
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Nestled in the heart of Mabeskraal, Rustenburg, Isong Cafe is your ultimate destination for casual dining and great vibes. 
+                    Warm up by our cozy fireplace, savor our extensive beer selection, and indulge in mouthwatering small plates and bar favorites. 
+                    Perfect for groups, dates, or solo unwindings, we offer dine-in and takeaway for your convenience.
+                </p>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="mb-16">
+            <h2 class="text-4xl font-bold mb-6 text-center text-gray-800">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition">
+                    <i class="fas fa-utensils text-4xl text-orange-500 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-3">Dine-in</h3>
+                    <p class="text-gray-600">Relax in our casual atmosphere with comfortable seating and friendly service.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition">
+                    <i class="fas fa-shopping-bag text-4xl text-orange-500 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-3">Takeaway</h3>
+                    <p class="text-gray-600">Quick and easy – grab your favorites to enjoy at home or on the go.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Highlights & Offerings -->
+        <section id="menu" class="mb-16">
+            <h2 class="text-4xl font-bold mb-6 text-center text-gray-800">Highlights & Offerings</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <ul class="space-y-3 text-gray-700">
+                    <li class="flex items-center"><i class="fas fa-fire text-orange-500 mr-3"></i> Cozy Fireplace for Chilly Evenings</li>
+                    <li class="flex items-center"><i class="fas fa-beer text-orange-500 mr-3"></i> Extensive Beer Selection</li>
+                    <li class="flex items-center"><i class="fas fa-wine-glass text-orange-500 mr-3"></i> Fine Wines & Spirits</li>
+                </ul>
+                <ul class="space-y-3 text-gray-700">
+                    <li class="flex items-center"><i class="fas fa-utensils text-orange-500 mr-3"></i> Delicious Food & Small Plates</li>
+                    <li class="flex items-center"><i class="fas fa-chair text-orange-500 mr-3"></i> Comfortable Seating for Groups</li>
+                    <li class="flex items-center"><i class="fas fa-cocktail text-orange-500 mr-3"></i> Casual Atmosphere</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Contact & Location -->
+        <section id="contact" class="mb-16">
+            <h2 class="text-4xl font-bold mb-6 text-center text-gray-800">Contact & Location</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <p class="text-lg text-gray-700 flex items-center"><i class="fas fa-map-marker-alt text-orange-500 mr-3"></i> R565, Rustenburg, Mabeskraal, 0313</p>
+                    <p class="text-lg text-gray-700 flex items-center"><i class="fas fa-phone text-orange-500 mr-3"></i> <a href="tel:0761416139" class="hover:text-orange-500">076 141 6139</a></p>
+                    <p class="text-lg text-gray-700 flex items-center"><i class="fas fa-envelope text-orange-500 mr-3"></i> <a href="mailto:isongcafe11@gmail.com" class="hover:text-orange-500">isongcafe11@gmail.com</a></p>
+                    <p class="text-lg text-gray-700 flex items-center"><i class="fas fa-clock text-orange-500 mr-3"></i> Open daily at 10 AM ⋅ Closes at 11 PM</p>
+                    <p class="text-lg text-gray-700 flex items-center"><i class="fas fa-map-signs text-orange-500 mr-3"></i> Plus Code: RQ4W+R5 Mabeskraal</p>
+                    <p class="text-lg text-gray-700 flex items-center"><i class="fab fa-facebook text-orange-500 mr-3"></i> <a href="https://www.facebook.com/p/Isong-Cafe-100063795255389/" target="_blank" class="hover:text-orange-500">Follow us on Facebook</a></p>
+                </div>
+                <div>
+                    <iframe class="w-full h-80 rounded-xl" src="https://www.google.com/maps?q=RQ4W%2BR5+Mabeskraal%2C+South+Africa&hl=en&z=17&output=embed" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Amenities & Payments -->
+        <section class="mb-16">
+            <h2 class="text-4xl font-bold mb-6 text-center text-gray-800">Amenities & Payments</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-bold mb-4 text-center">Amenities</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-center"><i class="fas fa-glass-martini text-orange-500 mr-3"></i> Bar on Site</li>
+                        <li class="flex items-center"><i class="fas fa-restroom text-orange-500 mr-3"></i> Clean Toilets</li>
+                        <li class="flex items-center"><i class="fas fa-child text-orange-500 mr-3"></i> High Chairs Available</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-bold mb-4 text-center">Payment Options</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-center"><i class="fas fa-credit-card text-orange-500 mr-3"></i> Credit & Debit Cards</li>
+                        <li class="flex items-center"><i class="fas fa-mobile-alt text-orange-500 mr-3"></i> NFC Mobile Payments</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Parking -->
+        <section class="mb-16">
+            <h2 class="text-4xl font-bold mb-6 text-center text-gray-800">Parking</h2>
+            <div class="bg-white p-6 rounded-xl shadow-md max-w-2xl mx-auto">
+                <ul class="space-y-2 text-gray-700 text-center">
+                    <li class="flex justify-center items-center"><i class="fas fa-parking text-orange-500 mr-3"></i> Free Street Parking</li>
+                    <li class="flex justify-center items-center"><i class="fas fa-parking text-orange-500 mr-3"></i> Free Parking Lot</li>
+                    <li class="flex justify-center items-center"><i class="fas fa-parking text-orange-500 mr-3"></i> Ample Parking Space</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-4">&copy; 2025 Isong Cafe. All rights reserved.</p>
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-6">
+                <a href="tel:0761416139" class="hover:text-orange-500 flex items-center justify-center"><i class="fas fa-phone mr-1"></i> Call Us</a>
+                <a href="#" class="hover:text-orange-500 flex items-center justify-center"><i class="fas fa-share mr-1"></i> Share</a>
+                <a href="https://www.facebook.com/p/Isong-Cafe-100063795255389/" target="_blank" class="hover:text-orange-500 flex items-center justify-center"><i class="fab fa-facebook mr-1"></i> Facebook</a>
+            </div>
+            <p class="mt-4 text-sm">Plus Code: RQ4W+R5 Mabeskraal</p>
+        </div>
+    </footer>
+
+    <!-- Navigation Script -->
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+
+        function toggleMobileMenu() {
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden', 'mobile-menu-close');
+                mobileMenu.classList.add('mobile-menu-open');
+                mobileOverlay.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.remove('mobile-menu-open');
+                mobileMenu.classList.add('mobile-menu-close');
+                mobileOverlay.classList.add('hidden');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('mobile-menu-close');
+                }, 300);
+            }
+        }
+
+        if (menuToggle && mobileMenu && mobileOverlay) {
+            menuToggle.addEventListener('click', toggleMobileMenu);
+            menuClose.addEventListener('click', toggleMobileMenu);
+            mobileOverlay.addEventListener('click', toggleMobileMenu);
+        }
+
+        // Active Navigation Highlight
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section[id]');
+
+        function setActiveLink() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-orange-400', 'font-bold');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('text-orange-400', 'font-bold');
+                }
+            });
+        }
+
+        // Smooth Scroll for Nav Links
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').slice(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        toggleMobileMenu();
+                    }
+                }
+            });
+        });
+
+        // Update active link on scroll
+        window.addEventListener('scroll', setActiveLink);
+
+        // Initial call to set active link on page load
+        setActiveLink();
+    </script>
+</body>
+</html>
