@@ -89,5 +89,67 @@ const swiper = new Swiper('.swiper-container', {
     effect: 'fade',
     fadeEffect: {
         crossFade: true
+    },
+    a11y: {
+        enabled: true,
+        prevSlideMessage: 'Previous slide',
+        nextSlideMessage: 'Next slide',
+        paginationBulletMessage: 'Go to slide {{index}}'
     }
 });
+
+// Menu Filter
+const filterButtons = document.querySelectorAll('.menu-filter');
+const menuItems = document.querySelectorAll('.menu-item');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const category = button.getAttribute('data-category');
+        filterButtons.forEach(btn => {
+            btn.classList.remove('bg-orange-500', 'text-white');
+            btn.classList.add('bg-gray-200', 'text-gray-800');
+        });
+        button.classList.add('bg-orange-500', 'text-white');
+        menuItems.forEach(item => {
+            if (category === 'all' || item.getAttribute('data-category') === category) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
+});
+
+// Booking Form Validation
+const bookingForm = document.getElementById('booking-form');
+if (bookingForm) {
+    bookingForm.addEventListener('submit', function (e) {
+        const dateInput = document.getElementById('date');
+        const timeInput = document.getElementById('time');
+        const partyInput = document.getElementById('party');
+        const today = new Date().toISOString().split('T')[0];
+
+        if (dateInput.value < today) {
+            e.preventDefault();
+            alert('Please select a future date for your reservation.');
+            dateInput.focus();
+            return;
+        }
+
+        const time = timeInput.value.split(':');
+        const hours = parseInt(time[0]);
+        if (hours < 10 || hours >= 23) {
+            e.preventDefault();
+            alert('Please select a time between 10:00 AM and 11:00 PM.');
+            timeInput.focus();
+            return;
+        }
+
+        if (partyInput.value < 1) {
+            e.preventDefault();
+            alert('Party size must be at least 1.');
+            partyInput.focus();
+            return;
+        }
+    });
+}
