@@ -6,6 +6,7 @@
     <title>Isong Cafe - Bar & Grill | Mabeskraal, Rustenburg</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <meta name="description" content="Welcome to Isong Cafe, your premier bar and grill in Mabeskraal, Rustenburg. Enjoy great beer, cozy fireplace, and delicious food.">
     <style>
         /* Animation for mobile menu slide-in */
@@ -23,61 +24,125 @@
         .mobile-menu-close {
             animation: slideOut 0.3s ease-in-out forwards;
         }
+        /* Fade-in animation for sections */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        /* Hero carousel styling */
+        .swiper-slide {
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-overlay {
+            background: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
-<body class="bg-gray-50 font-sans">
+<body class="bg-gray-100 font-sans">
     <!-- Navigation -->
-    <nav class="bg-gray-800 text-white shadow-lg fixed top-0 w-full z-20">
+    <nav class="bg-gray-900 text-white shadow-lg fixed top-0 w-full z-20">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
-                <a href="#" class="text-2xl font-bold">Isong Cafe</a>
-                <div id="desktop-menu" class="hidden md:flex space-x-6">
-                    <a href="#about" class="nav-link hover:text-orange-400 transition">About</a>
-                    <a href="#services" class="nav-link hover:text-orange-400 transition">Services</a>
-                    <a href="#menu" class="nav-link hover:text-orange-400 transition">Highlights</a>
-                    <a href="#contact" class="nav-link hover:text-orange-400 transition">Contact</a>
+                <a href="#" class="text-3xl font-extrabold tracking-tight">Isong Cafe</a>
+                <div id="desktop-menu" class="hidden md:flex space-x-8">
+                    <a href="#about" class="nav-link text-lg hover:text-orange-400 transition duration-300">About</a>
+                    <a href="#services" class="nav-link text-lg hover:text-orange-400 transition duration-300">Services</a>
+                    <a href="#menu" class="nav-link text-lg hover:text-orange-400 transition duration-300">Highlights</a>
+                    <a href="#contact" class="nav-link text-lg hover:text-orange-400 transition duration-300">Contact</a>
                 </div>
                 <button id="menu-toggle" class="md:hidden focus:outline-none">
-                    <i class="fas fa-bars text-xl"></i>
+                    <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
         </div>
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-3/4 max-w-sm bg-gray-800 text-white z-30 hidden">
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-3/4 max-w-sm bg-gray-900 text-white z-30 hidden">
         <div class="flex flex-col items-center justify-center h-full space-y-6">
             <button id="menu-close" class="absolute top-4 right-4 focus:outline-none">
                 <i class="fas fa-times text-2xl"></i>
             </button>
-            <a href="#about" class="nav-link text-xl hover:text-orange-400 transition">About</a>
-            <a href="#services" class="nav-link text-xl hover:text-orange-400 transition">Services</a>
-            <a href="#menu" class="nav-link text-xl hover:text-orange-400 transition">Highlights</a>
-            <a href="#contact" class="nav-link text-xl hover:text-orange-400 transition">Contact</a>
+            <a href="#about" class="nav-link text-xl hover:text-orange-400 transition duration-300">About</a>
+            <a href="#services" class="nav-link text-xl hover:text-orange-400 transition duration-300">Services</a>
+            <a href="#menu" class="nav-link text-xl hover:text-orange-400 transition duration-300">Highlights</a>
+            <a href="#contact" class="nav-link text-xl hover:text-orange-400 transition duration-300">Contact</a>
         </div>
     </div>
 
     <!-- Overlay for Mobile Menu -->
     <div id="mobile-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-20 hidden"></div>
 
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-gray-800 to-orange-900 text-white py-20 mt-16">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-5xl md:text-6xl font-bold mb-4">Welcome to Isong Cafe</h1>
-            <p class="text-xl md:text-2xl mb-6">Your Cozy Bar & Grill in Mabeskraal</p>
-            <div class="flex justify-center items-center mb-8">
-                <i class="fas fa-star text-yellow-400 mr-1"></i>
-                <span class="text-2xl">4.3 (40 reviews)</span>
+    <!-- Hero Section with Carousel -->
+    <section class="relative h-screen">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4');">
+                    <div class="hero-overlay">
+                        <div class="container mx-auto px-4 text-center text-white">
+                            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 animate-fade-in">Welcome to Isong Cafe</h1>
+                            <p class="text-xl md:text-3xl mb-6 animate-fade-in" style="animation-delay: 0.2s;">Your Cozy Bar & Grill in Mabeskraal</p>
+                            <div class="flex justify-center items-center mb-8 animate-fade-in" style="animation-delay: 0.4s;">
+                                <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                <span class="text-2xl">4.3 (40 reviews)</span>
+                            </div>
+                            <a href="#contact" class="bg-orange-500 hover:bg-orange-600 px-8 py-3 rounded-lg text-lg font-semibold transition duration-300 animate-fade-in" style="animation-delay: 0.6s;">Get Directions</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5');">
+                    <div class="hero-overlay">
+                        <div class="container mx-auto px-4 text-center text-white">
+                            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 animate-fade-in">Savor the Flavor</h1>
+                            <p class="text-xl md:text-3xl mb-6 animate-fade-in" style="animation-delay: 0.2s;">Delicious Food & Drinks Await</p>
+                            <div class="flex justify-center items-center mb-8 animate-fade-in" style="animation-delay: 0.4s;">
+                                <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                <span class="text-2xl">4.3 (40 reviews)</span>
+                            </div>
+                            <a href="#menu" class="bg-orange-500 hover:bg-orange-600 px-8 py-3 rounded-lg text-lg font-semibold transition duration-300 animate-fade-in" style="animation-delay: 0.6s;">Explore Menu</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1515003197210-e0cd71810b5f');">
+                    <div class="hero-overlay">
+                        <div class="container mx-auto px-4 text-center text-white">
+                            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 animate-fade-in">Cozy Vibes</h1>
+                            <p class="text-xl md:text-3xl mb-6 animate-fade-in" style="animation-delay: 0.2s;">Warm Up by Our Fireplace</p>
+                            <div class="flex justify-center items-center mb-8 animate-fade-in" style="animation-delay: 0.4s;">
+                                <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                <span class="text-2xl">4.3 (40 reviews)</span>
+                            </div>
+                            <a href="#about" class="bg-orange-500 hover:bg-orange-600 px-8 py-3 rounded-lg text-lg font-semibold transition duration-300 animate-fade-in" style="animation-delay: 0.6s;">Learn More</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <a href="#contact" class="bg-orange-500 hover:bg-orange-600 px-8 py-3 rounded-lg text-lg font-semibold transition">Get Directions</a>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Navigation -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
     </section>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-4 py-8">
+    <main class="container mx-auto px-4 py-12">
         <!-- About Section -->
-        <section id="about" class="mb-16">
-            <h2 class="text-4xl font-bold mb-6 text-center text-gray-800">About Isong Cafe</h2>
+        <section id="about" class="mb-20 animate-fade-in">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-center text-gray-800">About Isong Cafe</h2>
             <div class="max-w-4xl mx-auto text-center">
                 <p class="text-lg text-gray-700 leading-relaxed">
                     Nestled in the heart of Mabeskraal, Rustenburg, Isong Cafe is your ultimate destination for casual dining and great vibes. 
@@ -88,15 +153,15 @@
         </section>
 
         <!-- Services Section -->
-        <section id="services" class="mb-16">
-            <h2 class="text-4xl font-bold mb-6 text-center text-gray-800">Our Services</h2>
+        <section id="services" class="mb-20 animate-fade-in">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-center text-gray-800">Our Services</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition">
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
                     <i class="fas fa-utensils text-4xl text-orange-500 mb-4"></i>
                     <h3 class="text-2xl font-bold mb-3">Dine-in</h3>
                     <p class="text-gray-600">Relax in our casual atmosphere with comfortable seating and friendly service.</p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition">
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
                     <i class="fas fa-shopping-bag text-4xl text-orange-500 mb-4"></i>
                     <h3 class="text-2xl font-bold mb-3">Takeaway</h3>
                     <p class="text-gray-600">Quick and easy – grab your favorites to enjoy at home or on the go.</p>
@@ -105,8 +170,8 @@
         </section>
 
         <!-- Highlights & Offerings -->
-        <section id="menu" class="mb-16">
-            <h2 class="text-4xl font-bold mb-6 text-center text-gray-800">Highlights & Offerings</h2>
+        <section id="menu" class="mb-20 animate-fade-in">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-center text-gray-800">Highlights & Offerings</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                 <ul class="space-y-3 text-gray-700">
                     <li class="flex items-center"><i class="fas fa-fire text-orange-500 mr-3"></i> Cozy Fireplace for Chilly Evenings</li>
@@ -122,28 +187,28 @@
         </section>
 
         <!-- Contact & Location -->
-        <section id="contact" class="mb-16">
-            <h2 class="text-4xl font-bold mb-6 text-center text-gray-800">Contact & Location</h2>
+        <section id="contact" class="mb-20 animate-fade-in">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-center text-gray-800">Contact & Location</h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div class="space-y-4">
                     <p class="text-lg text-gray-700 flex items-center"><i class="fas fa-map-marker-alt text-orange-500 mr-3"></i> R565, Rustenburg, Mabeskraal, 0313</p>
-                    <p class="text-lg text-gray-700 flex items-center"><i class="fas fa-phone text-orange-500 mr-3"></i> <a href="tel:0761416139" class="hover:text-orange-500">076 141 6139</a></p>
-                    <p class="text-lg text-gray-700 flex items-center"><i class="fas fa-envelope text-orange-500 mr-3"></i> <a href="mailto:isongcafe11@gmail.com" class="hover:text-orange-500">isongcafe11@gmail.com</a></p>
+                    <p class="text-lg text-gray-700 flex items-center"><i class="fas fa-phone text-orange-500 mr-3"></i> <a href="tel:0761416139" class="hover:text-orange-500 transition duration-300">076 141 6139</a></p>
+                    <p class="text-lg text-gray-700 flex items-center"><i class="fas fa-envelope text-orange-500 mr-3"></i> <a href="mailto:isongcafe11@gmail.com" class="hover:text-orange-500 transition duration-300">isongcafe11@gmail.com</a></p>
                     <p class="text-lg text-gray-700 flex items-center"><i class="fas fa-clock text-orange-500 mr-3"></i> Open daily at 10 AM ⋅ Closes at 11 PM</p>
                     <p class="text-lg text-gray-700 flex items-center"><i class="fas fa-map-signs text-orange-500 mr-3"></i> Plus Code: RQ4W+R5 Mabeskraal</p>
-                    <p class="text-lg text-gray-700 flex items-center"><i class="fab fa-facebook text-orange-500 mr-3"></i> <a href="https://www.facebook.com/p/Isong-Cafe-100063795255389/" target="_blank" class="hover:text-orange-500">Follow us on Facebook</a></p>
+                    <p class="text-lg text-gray-700 flex items-center"><i class="fab fa-facebook text-orange-500 mr-3"></i> <a href="https://www.facebook.com/p/Isong-Cafe-100063795255389/" target="_blank" class="hover:text-orange-500 transition duration-300">Follow us on Facebook</a></p>
                 </div>
                 <div>
-                    <iframe class="w-full h-80 rounded-xl" src="https://www.google.com/maps?q=RQ4W%2BR5+Mabeskraal%2C+South+Africa&hl=en&z=17&output=embed" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe class="w-full h-80 rounded-2xl shadow-lg" src="https://www.google.com/maps?q=RQ4W%2BR5+Mabeskraal%2C+South+Africa&hl=en&z=17&output=embed" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </section>
 
         <!-- Amenities & Payments -->
-        <section class="mb-16">
-            <h2 class="text-4xl font-bold mb-6 text-center text-gray-800">Amenities & Payments</h2>
+        <section class="mb-20 animate-fade-in">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-center text-gray-800">Amenities & Payments</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="bg-white p-6 rounded-xl shadow-md">
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300">
                     <h3 class="text-2xl font-bold mb-4 text-center">Amenities</h3>
                     <ul class="space-y-2 text-gray-700">
                         <li class="flex items-center"><i class="fas fa-glass-martini text-orange-500 mr-3"></i> Bar on Site</li>
@@ -151,7 +216,7 @@
                         <li class="flex items-center"><i class="fas fa-child text-orange-500 mr-3"></i> High Chairs Available</li>
                     </ul>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-md">
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300">
                     <h3 class="text-2xl font-bold mb-4 text-center">Payment Options</h3>
                     <ul class="space-y-2 text-gray-700">
                         <li class="flex items-center"><i class="fas fa-credit-card text-orange-500 mr-3"></i> Credit & Debit Cards</li>
@@ -162,9 +227,9 @@
         </section>
 
         <!-- Parking -->
-        <section class="mb-16">
-            <h2 class="text-4xl font-bold mb-6 text-center text-gray-800">Parking</h2>
-            <div class="bg-white p-6 rounded-xl shadow-md max-w-2xl mx-auto">
+        <section class="mb-20 animate-fade-in">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-center text-gray-800">Parking</h2>
+            <div class="bg-white p-6 rounded-2xl shadow-lg max-w-2xl mx-auto hover:shadow-2xl transition duration-300">
                 <ul class="space-y-2 text-gray-700 text-center">
                     <li class="flex justify-center items-center"><i class="fas fa-parking text-orange-500 mr-3"></i> Free Street Parking</li>
                     <li class="flex justify-center items-center"><i class="fas fa-parking text-orange-500 mr-3"></i> Free Parking Lot</li>
@@ -175,92 +240,19 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
+    <footer class="bg-gray-900 text-white py-10">
         <div class="container mx-auto px-4 text-center">
-            <p class="mb-4">&copy; 2025 Isong Cafe. All rights reserved.</p>
-            <div class="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-6">
-                <a href="tel:0761416139" class="hover:text-orange-500 flex items-center justify-center"><i class="fas fa-phone mr-1"></i> Call Us</a>
-                <a href="#" class="hover:text-orange-500 flex items-center justify-center"><i class="fas fa-share mr-1"></i> Share</a>
-                <a href="https://www.facebook.com/p/Isong-Cafe-100063795255389/" target="_blank" class="hover:text-orange-500 flex items-center justify-center"><i class="fab fa-facebook mr-1"></i> Facebook</a>
+            <p class="mb-4 text-lg">&copy; 2025 Isong Cafe. All rights reserved.</p>
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8">
+                <a href="tel:0761416139" class="hover:text-orange-400 transition duration-300 flex items-center justify-center"><i class="fas fa-phone mr-2"></i> Call Us</a>
+                <a href="#" class="hover:text-orange-400 transition duration-300 flex items-center justify-center"><i class="fas fa-share mr-2"></i> Share</a>
+                <a href="https://www.facebook.com/p/Isong-Cafe-100063795255389/" target="_blank" class="hover:text-orange-400 transition duration-300 flex items-center justify-center"><i class="fab fa-facebook mr-2"></i> Facebook</a>
             </div>
             <p class="mt-4 text-sm">Plus Code: RQ4W+R5 Mabeskraal</p>
         </div>
     </footer>
 
-    <!-- Navigation Script -->
-    <script>
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menu-toggle');
-        const menuClose = document.getElementById('menu-close');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileOverlay = document.getElementById('mobile-overlay');
-
-        function toggleMobileMenu() {
-            if (mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.remove('hidden', 'mobile-menu-close');
-                mobileMenu.classList.add('mobile-menu-open');
-                mobileOverlay.classList.remove('hidden');
-            } else {
-                mobileMenu.classList.remove('mobile-menu-open');
-                mobileMenu.classList.add('mobile-menu-close');
-                mobileOverlay.classList.add('hidden');
-                setTimeout(() => {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenu.classList.remove('mobile-menu-close');
-                }, 300);
-            }
-        }
-
-        if (menuToggle && mobileMenu && mobileOverlay) {
-            menuToggle.addEventListener('click', toggleMobileMenu);
-            menuClose.addEventListener('click', toggleMobileMenu);
-            mobileOverlay.addEventListener('click', toggleMobileMenu);
-        }
-
-        // Active Navigation Highlight
-        const navLinks = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('section[id]');
-
-        function setActiveLink() {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                if (window.scrollY >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('text-orange-400', 'font-bold');
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('text-orange-400', 'font-bold');
-                }
-            });
-        }
-
-        // Smooth Scroll for Nav Links
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').slice(1);
-                const targetSection = document.getElementById(targetId);
-                if (targetSection) {
-                    window.scrollTo({
-                        top: targetSection.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        toggleMobileMenu();
-                    }
-                }
-            });
-        });
-
-        // Update active link on scroll
-        window.addEventListener('scroll', setActiveLink);
-
-        // Initial call to set active link on page load
-        setActiveLink();
-    </script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
