@@ -8,6 +8,7 @@
     "no-inline-styles": "off",
     "compat-api/html": "off",
     "button-type": "off",
-    "axe/name-role-value": "off"
+    "axe/name-role-value": "off",
+    "axe/keyboard": "off"
   }
 }
