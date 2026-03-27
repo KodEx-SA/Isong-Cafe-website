@@ -105,7 +105,7 @@ nav.scrolled {
   font-size: 1.5rem;
   font-weight: 600;
   font-style: italic;
-  color: var(--white);
+  color: var(--gray);
   transition: color 0.3s;
 }
 nav.scrolled .nav-logo {
@@ -128,7 +128,7 @@ nav.scrolled .nav-logo {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.88);
+  color: var(--gray);
   transition: color 0.25s;
 }
 nav.scrolled .nav-links a {
