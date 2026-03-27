@@ -1,155 +1,114 @@
-// Mobile Menu Toggle
-const menuToggle = document.getElementById('menu-toggle');
-const menuClose = document.getElementById('menu-close');
-const mobileMenu = document.getElementById('mobile-menu');
-const mobileOverlay = document.getElementById('mobile-overlay');
-
-function toggleMobileMenu() {
-    if (mobileMenu.classList.contains('hidden')) {
-        mobileMenu.classList.remove('hidden', 'mobile-menu-close');
-        mobileMenu.classList.add('mobile-menu-open');
-        mobileOverlay.classList.remove('hidden');
-    } else {
-        mobileMenu.classList.remove('mobile-menu-open');
-        mobileMenu.classList.add('mobile-menu-close');
-        mobileOverlay.classList.add('hidden');
-        setTimeout(() => {
-            mobileMenu.classList.add('hidden');
-            mobileMenu.classList.remove('mobile-menu-close');
-        }, 300);
+new Swiper(".swiper-container", {
+  loop: true,
+  autoplay: { delay: 5000, disableOnInteraction: false },
+  pagination: { el: ".swiper-pagination", clickable: true },
+  navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+  effect: "fade",
+  fadeEffect: { crossFade: true },
+  a11y: {
+    enabled: true,
+    prevSlideMessage: "Previous slide",
+    nextSlideMessage: "Next slide",
+    paginationBulletMessage: "Go to slide {{index}}",
+  },
+});
+const nav = document.getElementById("main-nav");
+window.addEventListener(
+  "scroll",
+  () => nav.classList.toggle("scrolled", window.scrollY > 50),
+  { passive: true },
+);
+const navLinks = document.querySelectorAll(".nav-link");
+const sections = document.querySelectorAll("section[id]");
+function updateActive() {
+  let cur = "";
+  sections.forEach((s) => {
+    if (window.scrollY >= s.offsetTop - 110) cur = s.id;
+  });
+  navLinks.forEach((l) =>
+    l.classList.toggle("active", l.getAttribute("href").slice(1) === cur),
+  );
+}
+window.addEventListener("scroll", updateActive, { passive: true });
+document.querySelectorAll('a[href^="#"]').forEach((a) => {
+  a.addEventListener("click", (e) => {
+    const id = a.getAttribute("href").slice(1);
+    const el = document.getElementById(id);
+    if (!el) return;
+    e.preventDefault();
+    window.scrollTo({ top: el.offsetTop - 70, behavior: "smooth" });
+    document.getElementById("drawer-bg").classList.remove("open");
+    document.getElementById("hamburger").classList.remove("open");
+  });
+});
+const hamburger = document.getElementById("hamburger");
+const drawerBg = document.getElementById("drawer-bg");
+hamburger.addEventListener("click", () => {
+  drawerBg.classList.toggle("open");
+  hamburger.classList.toggle("open");
+});
+document.getElementById("drawer-close").addEventListener("click", () => {
+  drawerBg.classList.remove("open");
+  hamburger.classList.remove("open");
+});
+drawerBg.addEventListener("click", (e) => {
+  if (e.target === drawerBg) {
+    drawerBg.classList.remove("open");
+    hamburger.classList.remove("open");
+  }
+});
+const ro = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add("visible");
+        ro.unobserve(e.target);
+      }
+    });
+  },
+  { threshold: 0.12 },
+);
+document.querySelectorAll(".reveal").forEach((el) => ro.observe(el));
+document.querySelectorAll(".menu-filter").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const cat = btn.dataset.category;
+    document
+      .querySelectorAll(".menu-filter")
+      .forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+    document.querySelectorAll(".menu-card").forEach((card) => {
+      card.style.display =
+        cat === "all" || card.dataset.category === cat ? "" : "none";
+    });
+  });
+});
+const form = document.getElementById("booking-form");
+if (form) {
+  form.addEventListener("submit", (e) => {
+    const date = document.getElementById("date");
+    const time = document.getElementById("time");
+    const party = document.getElementById("party");
+    const today = new Date().toISOString().split("T")[0];
+    const highlight = (el) => {
+      el.style.borderColor = "#e53e3e";
+      el.focus();
+      setTimeout(() => (el.style.borderColor = ""), 2500);
+    };
+    if (date.value < today) {
+      e.preventDefault();
+      highlight(date);
+      return;
     }
-}
-
-if (menuToggle && mobileMenu && mobileOverlay) {
-    menuToggle.addEventListener('click', toggleMobileMenu);
-    menuClose.addEventListener('click', toggleMobileMenu);
-    mobileOverlay.addEventListener('click', toggleMobileMenu);
-}
-
-// Active Navigation Highlight
-const navLinks = document.querySelectorAll('.nav-link');
-const sections = document.querySelectorAll('section[id]');
-
-function setActiveLink() {
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        if (window.scrollY >= sectionTop) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('text-orange-400', 'font-bold');
-        if (link.getAttribute('href').slice(1) === current) {
-            link.classList.add('text-orange-400', 'font-bold');
-        }
-    });
-}
-
-// Smooth Scroll for Nav Links
-navLinks.forEach(link => {
-    link.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').slice(1);
-        const targetSection = document.getElementById(targetId);
-        if (targetSection) {
-            window.scrollTo({
-                top: targetSection.offsetTop - 80,
-                behavior: 'smooth'
-            });
-            if (!mobileMenu.classList.contains('hidden')) {
-                toggleMobileMenu();
-            }
-        }
-    });
-});
-
-// Update active link on scroll
-window.addEventListener('scroll', setActiveLink);
-
-// Initial call to set active link on page load
-setActiveLink();
-
-// Initialize Swiper Carousel
-const swiper = new Swiper('.swiper-container', {
-    loop: true,
-    autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-    },
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    effect: 'fade',
-    fadeEffect: {
-        crossFade: true
-    },
-    a11y: {
-        enabled: true,
-        prevSlideMessage: 'Previous slide',
-        nextSlideMessage: 'Next slide',
-        paginationBulletMessage: 'Go to slide {{index}}'
+    const h = parseInt((time.value || "0:0").split(":")[0]);
+    if (h < 10 || h >= 23) {
+      e.preventDefault();
+      highlight(time);
+      return;
     }
-});
-
-// Menu Filter
-const filterButtons = document.querySelectorAll('.menu-filter');
-const menuItems = document.querySelectorAll('.menu-item');
-
-filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const category = button.getAttribute('data-category');
-        filterButtons.forEach(btn => {
-            btn.classList.remove('bg-orange-500', 'text-white');
-            btn.classList.add('bg-gray-200', 'text-gray-800');
-        });
-        button.classList.add('bg-orange-500', 'text-white');
-        menuItems.forEach(item => {
-            if (category === 'all' || item.getAttribute('data-category') === category) {
-                item.style.display = 'block';
-            } else {
-                item.style.display = 'none';
-            }
-        });
-    });
-});
-
-// Booking Form Validation
-const bookingForm = document.getElementById('booking-form');
-if (bookingForm) {
-    bookingForm.addEventListener('submit', function (e) {
-        const dateInput = document.getElementById('date');
-        const timeInput = document.getElementById('time');
-        const partyInput = document.getElementById('party');
-        const today = new Date().toISOString().split('T')[0];
-
-        if (dateInput.value < today) {
-            e.preventDefault();
-            alert('Please select a future date for your reservation.');
-            dateInput.focus();
-            return;
-        }
-
-        const time = timeInput.value.split(':');
-        const hours = parseInt(time[0]);
-        if (hours < 10 || hours >= 23) {
-            e.preventDefault();
-            alert('Please select a time between 10:00 AM and 11:00 PM.');
-            timeInput.focus();
-            return;
-        }
-
-        if (partyInput.value < 1) {
-            e.preventDefault();
-            alert('Party size must be at least 1.');
-            partyInput.focus();
-            return;
-        }
-    });
+    if (!party.value) {
+      e.preventDefault();
+      highlight(party);
+      return;
+    }
+  });
 }

@@ -1,283 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Isong Cafe - Bar & Grill | Mabeskraal, Rustenburg</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <meta name="description" content="Welcome to Isong Cafe, your premier bar and grill in Mabeskraal, Rustenburg. Enjoy great beer, cozy fireplace, and delicious food.">
-    <meta property="og:title" content="Isong Cafe - Bar & Grill | Mabeskraal, Rustenburg">
-    <meta property="og:description" content="Enjoy great beer, cozy fireplace, and delicious food at Isong Cafe.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4">
-    <meta property="og:url" content="https://isongcafe.com">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Isong Cafe — Bar & Grill | Mabeskraal, Rustenburg</title>
+  <meta name="description" content="Isong Cafe — your cozy bar & grill in Mabeskraal, Rustenburg. Great beer, fireplace vibes, and mouthwatering food. Open daily 10AM–11PM.">
+  <meta property="og:title" content="Isong Cafe — Bar & Grill | Mabeskraal">
+  <meta property="og:description" content="Great beer, cozy fireplace, and mouthwatering food in Mabeskraal, Rustenburg.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4">
+  <meta property="og:url" content="https://isongcafe.com">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-100 font-sans">
-    <!-- Navigation -->
-    <nav role="navigation" aria-label="Main navigation" class="bg-gray-900 text-white shadow-lg fixed top-0 w-full z-20">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <a href="#" class="text-3xl font-extrabold tracking-tight">Isong Cafe</a>
-                <div id="desktop-menu" class="hidden md:flex space-x-8">
-                    <a href="#about" class="nav-link text-lg hover:text-orange-400 transition duration-300">About</a>
-                    <a href="#services" class="nav-link text-lg hover:text-orange-400 transition duration-300">Services</a>
-                    <a href="#menu" class="nav-link text-lg hover:text-orange-400 transition duration-300">Menu</a>
-                    <a href="#booking" class="nav-link text-lg hover:text-orange-400 transition duration-300">Book</a>
-                    <a href="#contact" class="nav-link text-lg hover:text-orange-400 transition duration-300">Contact</a>
-                </div>
-                <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Toggle mobile menu">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
+<body>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-3/4 max-w-sm bg-gray-900 text-white z-30 hidden">
-        <div class="flex flex-col items-center justify-center h-full space-y-6">
-            <button id="menu-close" class="absolute top-4 right-4 focus:outline-none" aria-label="Close mobile menu">
-                <i class="fas fa-times text-2xl"></i>
-            </button>
-            <a href="#about" class="nav-link text-xl hover:text-orange-400 transition duration-300">About</a>
-            <a href="#services" class="nav-link text-xl hover:text-orange-400 transition duration-300">Services</a>
-            <a href="#menu" class="nav-link text-xl hover:text-orange-400 transition duration-300">Menu</a>
-            <a href="#booking" class="nav-link text-xl hover:text-orange-400 transition duration-300">Book</a>
-            <a href="#contact" class="nav-link text-xl hover:text-orange-400 transition duration-300">Contact</a>
-        </div>
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><strong>Isong</strong> <span>Cafe</span></a>
+    <div class="nav-links">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#menu" class="nav-link">Menu</a>
+      <a href="#gallery" class="nav-link">Gallery</a>
+      <a href="#contact" class="nav-link">Contact</a>
     </div>
+    <a href="#booking" class="nav-cta">Book a Table</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
 
-    <!-- Overlay for Mobile Menu -->
-    <div id="mobile-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-20 hidden"></div>
+<div class="drawer-bg" id="drawer-bg">
+  <div class="drawer-panel">
+    <button class="drawer-close" id="drawer-close" aria-label="Close menu"><i class="fas fa-times"></i></button>
+    <a href="#about">About</a><a href="#services">Services</a><a href="#menu">Menu</a>
+    <a href="#gallery">Gallery</a><a href="#booking">Book a Table</a><a href="#contact">Contact</a>
+  </div>
+</div>
 
-    <!-- Hero Section with Carousel -->
-    <section class="relative h-screen">
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4');">
-                    <div class="hero-overlay">
-                        <div class="container mx-auto px-4 text-center text-white">
-                            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 animate-fade-in">Welcome to Isong Cafe</h1>
-                            <p class="text-xl md:text-3xl mb-6 animate-fade-in" style="animation-delay: 0.2s;">Your Cozy Bar & Grill in Mabeskraal</p>
-                            <div class="flex justify-center items-center mb-8 animate-fade-in" style="animation-delay: 0.4s;">
-                                <i class="fas fa-star text-yellow-400 mr-2"></i>
-                                <span class="text-2xl">4.3 (40 reviews)</span>
-                            </div>
-                            <a href="#booking" class="bg-orange-500 hover:bg-orange-600 px-8 py-3 rounded-lg text-lg font-semibold transition duration-300 animate-fade-in" style="animation-delay: 0.6s;">Book Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5');">
-                    <div class="hero-overlay">
-                        <div class="container mx-auto px-4 text-center text-white">
-                            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 animate-fade-in">Savor the Flavor</h1>
-                            <p class="text-xl md:text-3xl mb-6 animate-fade-in" style="animation-delay: 0.2s;">Delicious Food & Drinks Await</p>
-                            <div class="flex justify-center items-center mb-8 animate-fade-in" style="animation-delay: 0.4s;">
-                                <i class="fas fa-star text-yellow-400 mr-2"></i>
-                                <span class="text-2xl">4.3 (40 reviews)</span>
-                            </div>
-                            <a href="#menu" class="bg-orange-500 hover:bg-orange-600 px-8 py-3 rounded-lg text-lg font-semibold transition duration-300 animate-fade-in" style="animation-delay: 0.6s;">Explore Menu</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1515003197210-e0cd71810b5f');">
-                    <div class="hero-overlay">
-                        <div class="container mx-auto px-4 text-center text-white">
-                            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 animate-fade-in">Cozy Vibes</h1>
-                            <p class="text-xl md:text-3xl mb-6 animate-fade-in" style="animation-delay: 0.2s;">Warm Up by Our Fireplace</p>
-                            <div class="flex justify-center items-center mb-8 animate-fade-in" style="animation-delay: 0.4s;">
-                                <i class="fas fa-star text-yellow-400 mr-2"></i>
-                                <span class="text-2xl">4.3 (40 reviews)</span>
-                            </div>
-                            <a href="#about" class="bg-orange-500 hover:bg-orange-600 px-8 py-3 rounded-lg text-lg font-semibold transition duration-300 animate-fade-in" style="animation-delay: 0.6s;">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+<!-- HERO -->
+<section class="hero" aria-label="Hero carousel">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=80');">
+        <div class="hero-overlay"><div class="hero-content">
+          <span class="hero-label">Mabeskraal, Rustenburg</span>
+          <h1>Welcome to Isong Cafe</h1>
+          <p>Your Cozy Bar &amp; Grill — great food, cold beers &amp; warm vibes every day.</p>
+          <div class="hero-rating"><i class="fas fa-star"></i><span>4.3 &nbsp;·&nbsp; 40 reviews</span></div>
+          <div class="hero-btns"><a href="#booking" class="btn-orange"><i class="fas fa-calendar-alt"></i> Book Now</a><a href="#menu" class="btn-ghost">Explore Menu</a></div>
+        </div></div>
+      </div>
+      <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&q=80');">
+        <div class="hero-overlay"><div class="hero-content">
+          <span class="hero-label">Fresh off the grill</span>
+          <h1>Savor the Flavor</h1>
+          <p>Delicious Food &amp; Drinks Await — from sizzling grills to refreshing cocktails.</p>
+          <div class="hero-rating"><i class="fas fa-star"></i><span>4.3 &nbsp;·&nbsp; 40 reviews</span></div>
+          <div class="hero-btns"><a href="#menu" class="btn-orange"><i class="fas fa-utensils"></i> Explore Menu</a><a href="#about" class="btn-ghost">Our Story</a></div>
+        </div></div>
+      </div>
+      <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?w=1600&q=80');">
+        <div class="hero-overlay"><div class="hero-content">
+          <span class="hero-label">Warm up by the fire</span>
+          <h1>Cozy Vibes</h1>
+          <p>Warm Up by Our Fireplace — perfect for groups, dates, or solo unwindings.</p>
+          <div class="hero-rating"><i class="fas fa-star"></i><span>4.3 &nbsp;·&nbsp; 40 reviews</span></div>
+          <div class="hero-btns"><a href="tel:0761416139" class="btn-orange"><i class="fas fa-phone"></i> Call to Book</a><a href="#contact" class="btn-ghost">Find Us</a></div>
+        </div></div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat reveal"><div class="stat-num">10+</div><div class="stat-label">Years Serving</div></div>
+    <div class="stat reveal d1"><div class="stat-num">4.3★</div><div class="stat-label">Google Rating</div></div>
+    <div class="stat reveal d2"><div class="stat-num">13h</div><div class="stat-label">Open Daily</div></div>
+    <div class="stat reveal d3"><div class="stat-num">R45+</div><div class="stat-label">Prices From</div></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="about-img-wrap">
+          <img class="about-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Inside Isong Cafe" loading="lazy">
+          <div class="about-badge"><div class="num">4.3</div><div class="lbl">Star Rating</div></div>
         </div>
-    </section>
-
-    <!-- Main Content -->
-    <main role="main" class="container mx-auto px-4 py-12">
-        <!-- About Section -->
-        <section id="about" class="mb-20 animate-fade-in">
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-center text-gray-800">About Isong Cafe</h2>
-            <div class="max-w-4xl mx-auto text-center">
-                <p class="text-lg text-gray-700 leading-relaxed">
-                    Nestled in the heart of Mabeskraal, Rustenburg, Isong Cafe is your ultimate destination for casual dining and great vibes. 
-                    Warm up by our cozy fireplace, savor our extensive beer selection, and indulge in mouthwatering small plates and bar favorites. 
-                    Perfect for groups, dates, or solo unwindings, we offer dine-in and takeaway for your convenience.
-                </p>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="services" class="mb-20 animate-fade-in">
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-center text-gray-800">Our Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-                    <i class="fas fa-utensils text-4xl text-orange-500 mb-4"></i>
-                    <h3 class="text-2xl font-bold mb-3">Dine-in</h3>
-                    <p class="text-gray-600">Relax in our casual atmosphere with comfortable seating and friendly service.</p>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-                    <i class="fas fa-shopping-bag text-4xl text-orange-500 mb-4"></i>
-                    <h3 class="text-2xl font-bold mb-3">Takeaway</h3>
-                    <p class="text-gray-600">Quick and easy – grab your favorites to enjoy at home or on the go.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Menu Section -->
-        <section id="menu" class="mb-20 animate-fade-in">
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-center text-gray-800">Our Menu</h2>
-            <div class="flex justify-center mb-6">
-                <button class="menu-filter px-4 py-2 mx-2 bg-orange-500 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400" data-category="all">All</button>
-                <button class="menu-filter px-4 py-2 mx-2 bg-gray-200 text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400" data-category="food">Food</button>
-                <button class="menu-filter px-4 py-2 mx-2 bg-gray-200 text-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400" data-category="drinks">Drinks</button>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                <div class="menu-item bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-1" data-category="food">
-                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd" alt="Grilled Steak" class="w-full h-48 object-cover" loading="lazy">
-                    <div class="p-4">
-                        <h3 class="text-xl font-bold">Grilled Steak</h3>
-                        <p class="text-gray-600">Juicy steak with herbs and spices.</p>
-                        <p class="text-orange-500 font-semibold">R120</p>
-                    </div>
-                </div>
-                <div class="menu-item bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-1" data-category="food">
-                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38" alt="Margherita Pizza" class="w-full h-48 object-cover" loading="lazy">
-                    <div class="p-4">
-                        <h3 class="text-xl font-bold">Margherita Pizza</h3>
-                        <p class="text-gray-600">Fresh tomatoes, mozzarella, and basil.</p>
-                        <p class="text-orange-500 font-semibold">R90</p>
-                    </div>
-                </div>
-                <div class="menu-item bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-1" data-category="drinks">
-                    <img src="https://images.unsplash.com/photo-1609951651556-5334e270e3de" alt="Craft Beer" class="w-full h-48 object-cover" loading="lazy">
-                    <div class="p-4">
-                        <h3 class="text-xl font-bold">Craft Beer</h3>
-                        <p class="text-gray-600">Locally brewed, refreshing pale ale.</p>
-                        <p class="text-orange-500 font-semibold">R45</p>
-                    </div>
-                </div>
-                <div class="menu-item bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-1" data-category="drinks">
-                    <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd" alt="Mojito" class="w-full h-48 object-cover" loading="lazy">
-                    <div class="p-4">
-                        <h3 class="text-xl font-bold">Mojito</h3>
-                        <p class="text-gray-600">Classic cocktail with mint and lime.</p>
-                        <p class="text-orange-500 font-semibold">R60</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Booking Section -->
-        <section id="booking" class="mb-20 animate-fade-in">
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-center text-gray-800">Book a Table</h2>
-            <form id="booking-form" class="max-w-lg mx-auto bg-white p-8 rounded-2xl shadow-lg" action="https://formspree.io/f/xyznryaj" method="POST" aria-label="Table reservation form">
-                <div class="mb-4">
-                    <label class="block text-gray-700 mb-2" for="name">Name</label>
-                    <input type="text" id="name" name="name" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400" required aria-required="true">
-                </div>
-                <div class="mb-4">
-                    <label class="block text-gray-700 mb-2" for="date">Date</label>
-                    <input type="date" id="date" name="date" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400" required aria-required="true">
-                </div>
-                <div class="mb-4">
-                    <label class="block text-gray-700 mb-2" for="time">Time</label>
-                    <input type="time" id="time" name="time" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400" required aria-required="true">
-                </div>
-                <div class="mb-4">
-                    <label class="block text-gray-700 mb-2" for="party">Party Size</label>
-                    <input type="number" id="party" name="party" min="1" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400" required aria-required="true">
-                </div>
-                <div class="mb-4">
-                    <label class="block text-gray-700 mb-2" for="comments">Comments (Optional)</label>
-                    <textarea id="comments" name="comments" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400" rows="4"></textarea>
-                </div>
-                <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white p-3 rounded-lg font-semibold transition duration-300">Reserve Now</button>
-            </form>
-        </section>
-
-        <!-- Contact & Location -->
-        <section id="contact" class="mb-20 animate-fade-in">
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-center text-gray-800">Contact & Location</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="space-y-4">
-                    <p class="text-lg text-gray-700 flex items-center"><i class="fas fa-map-marker-alt text-orange-500 mr-3"></i> R565, Rustenburg, Mabeskraal, 0313</p>
-                    <p class="text-lg text-gray-700 flex items-center"><i class="fas fa-phone text-orange-500 mr-3"></i> <a href="tel:0761416139" class="hover:text-orange-500 transition duration-300">076 141 6139</a></p>
-                    <p class="text-lg text-gray-700 flex items-center"><i class="fas fa-envelope text-orange-500 mr-3"></i> <a href="mailto:isongcafe11@gmail.com" class="hover:text-orange-500 transition duration-300">isongcafe11@gmail.com</a></p>
-                    <p class="text-lg text-gray-700 flex items-center"><i class="fas fa-clock text-orange-500 mr-3"></i> Open daily at 10 AM ⋅ Closes at 11 PM</p>
-                    <p class="text-lg text-gray-700 flex items-center"><i class="fas fa-map-signs text-orange-500 mr-3"></i> Plus Code: RQ4W+R5 Mabeskraal</p>
-                    <p class="text-lg text-gray-700 flex items-center"><i class="fab fa-facebook text-orange-500 mr-3"></i> <a href="https://www.facebook.com/p/Isong-Cafe-100063795255389/" target="_blank" class="hover:text-orange-500 transition duration-300">Follow us on Facebook</a></p>
-                </div>
-                <div>
-                    <iframe class="w-full h-80 rounded-2xl shadow-lg" src="https://www.google.com/maps?q=RQ4W%2BR5+Mabeskraal%2C+South+Africa&hl=en&z=17&output=embed" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Isong Cafe Location Map"></iframe>
-                </div>
-            </div>
-        </section>
-
-        <!-- Amenities & Payments -->
-        <section class="mb-20 animate-fade-in">
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-center text-gray-800">Amenities & Payments</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300">
-                    <h3 class="text-2xl font-bold mb-4 text-center">Amenities</h3>
-                    <ul class="space-y-2 text-gray-700">
-                        <li class="flex items-center"><i class="fas fa-glass-martini text-orange-500 mr-3"></i> Bar on Site</li>
-                        <li class="flex items-center"><i class="fas fa-restroom text-orange-500 mr-3"></i> Clean Toilets</li>
-                        <li class="flex items-center"><i class="fas fa-child text-orange-500 mr-3"></i> High Chairs Available</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl transition duration-300">
-                    <h3 class="text-2xl font-bold mb-4 text-center">Payment Options</h3>
-                    <ul class="space-y-2 text-gray-700">
-                        <li class="flex items-center"><i class="fas fa-credit-card text-orange-500 mr-3"></i> Credit & Debit Cards</li>
-                        <li class="flex items-center"><i class="fas fa-mobile-alt text-orange-500 mr-3"></i> NFC Mobile Payments</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Parking -->
-        <section class="mb-20 animate-fade-in">
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-center text-gray-800">Parking</h2>
-            <div class="bg-white p-6 rounded-2xl shadow-lg max-w-2xl mx-auto hover:shadow-2xl transition duration-300">
-                <ul class="space-y-2 text-gray-700 text-center">
-                    <li class="flex justify-center items-center"><i class="fas fa-parking text-orange-500 mr-3"></i> Free Street Parking</li>
-                    <li class="flex justify-center items-center"><i class="fas fa-parking text-orange-500 mr-3"></i> Free Parking Lot</li>
-                    <li class="flex justify-center items-center"><i class="fas fa-parking text-orange-500 mr-3"></i> Ample Parking Space</li>
-                </ul>
-            </div>
-        </section>
-    </main>
-
-    <!-- Floating CTA Button -->
-    <button class="fixed bottom-6 right-6 bg-orange-500 text-white p-4 rounded-full shadow-lg hover:bg-orange-600 transition duration-300 animate-pulse z-50" aria-label="Call to book a table">
-        <a href="tel:0761416139" class="flex items-center">
-            <i class="fas fa-phone mr-2"></i> Call to Book
-        </a>
-    </button>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-10">
-        <div class="container mx-auto px-4 text-center">
-            <p class="mb-4 text-lg">&copy; 2025 Isong Cafe. All rights reserved.</p>
-            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8">
-                <a href="tel:0761416139" class="hover:text-orange-400 transition duration-300 flex items-center justify-center"><i class="fas fa-phone mr-2"></i> Call Us</a>
-                <a href="#" class="hover:text-orange-400 transition duration-300 flex items-center justify-center"><i class="fas fa-share mr-2"></i> Share</a>
-                <a href="https://www.facebook.com/p/Isong-Cafe-100063795255389/" target="_blank" class="hover:text-orange-400 transition duration-300 flex items-center justify-center"><i class="fab fa-facebook mr-2"></i> Facebook</a>
-            </div>
-            <p class="mt-4 text-sm">Plus Code: RQ4W+R5 Mabeskraal</p>
+      </div>
+      <div class="about-text reveal d2">
+        <div class="eyebrow">Our Story</div>
+        <h2 class="section-title">More Than Just<br><em>a Place to Eat</em></h2>
+        <div class="underline-accent"></div>
+        <p>Nestled in the heart of Mabeskraal, Rustenburg, Isong Cafe is your ultimate destination for casual dining and great vibes. Warm up by our cozy fireplace, savor our extensive beer selection, and indulge in mouthwatering bar favourites.</p>
+        <p>Perfect for groups, dates, or solo unwindings — we offer dine-in and takeaway for your convenience. Open daily and always happy to see a new face.</p>
+        <div class="about-feats">
+          <div class="feat"><i class="fas fa-fire"></i> Fireplace Seating</div>
+          <div class="feat"><i class="fas fa-beer"></i> Extensive Beer Menu</div>
+          <div class="feat"><i class="fas fa-utensils"></i> Dine-in &amp; Takeaway</div>
+          <div class="feat"><i class="fas fa-parking"></i> Free Parking</div>
+          <div class="feat"><i class="fas fa-credit-card"></i> Card &amp; NFC Payments</div>
+          <div class="feat"><i class="fas fa-child"></i> Family Friendly</div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="./script.js"></script>
+<!-- SERVICES -->
+<section id="services" class="alt">
+  <div class="container">
+    <div class="sh-center reveal" style="margin-bottom:52px;">
+      <div class="eyebrow">What We Offer</div>
+      <h2 class="section-title">Our Services</h2>
+      <div class="underline-accent"></div>
+      <p class="section-sub">From a quick grab-and-go to a full evening out — we've got you covered.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card reveal d1"><div class="svc-icon"><i class="fas fa-utensils"></i></div><h3>Dine-In</h3><p>Relax in our warm, casual atmosphere with comfortable seating and friendly service.</p></div>
+      <div class="svc-card reveal d2"><div class="svc-icon"><i class="fas fa-shopping-bag"></i></div><h3>Takeaway</h3><p>Quick and easy — grab your favourites to enjoy at home or on the go.</p></div>
+      <div class="svc-card reveal d3"><div class="svc-icon"><i class="fas fa-fire"></i></div><h3>Fireplace Lounge</h3><p>Our signature fireplace seating is perfect for chilly Rustenburg evenings.</p></div>
+      <div class="svc-card reveal d4"><div class="svc-icon"><i class="fas fa-users"></i></div><h3>Group Events</h3><p>We accommodate groups of all sizes. Contact us to make arrangements.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="container">
+    <div class="sh-center reveal" style="margin-bottom:52px;">
+      <div class="eyebrow">What's Cooking</div>
+      <h2 class="section-title">Our Menu</h2>
+      <div class="underline-accent"></div>
+      <p class="section-sub">From juicy grills to refreshing cocktails — something for everyone.</p>
+    </div>
+    <div class="menu-filters reveal">
+      <button class="menu-filter active" data-category="all">All</button>
+      <button class="menu-filter" data-category="food">Food</button>
+      <button class="menu-filter" data-category="drinks">Drinks</button>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card reveal d1" data-category="food"><div class="menu-img-wrap"><img class="menu-img" src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=600&q=80" alt="Grilled Steak" loading="lazy"></div><div class="menu-body"><h3>Grilled Steak</h3><p>Juicy steak with herbs and spices, served with seasoned fries.</p><div class="menu-foot"><span class="menu-price">R120</span><span class="menu-tag">Popular</span></div></div></div>
+      <div class="menu-card reveal d2" data-category="food"><div class="menu-img-wrap"><img class="menu-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80" alt="Margherita Pizza" loading="lazy"></div><div class="menu-body"><h3>Margherita Pizza</h3><p>Fresh tomatoes, mozzarella, and basil on a crispy base.</p><div class="menu-foot"><span class="menu-price">R90</span><span class="menu-tag">Fan Fave</span></div></div></div>
+      <div class="menu-card reveal d3" data-category="food"><div class="menu-img-wrap"><img class="menu-img" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80" alt="Beef Burger" loading="lazy"></div><div class="menu-body"><h3>Beef Burger</h3><p>Flame-grilled patty with caramelised onions, pickles &amp; house sauce.</p><div class="menu-foot"><span class="menu-price">R85</span><span class="menu-tag">Grill</span></div></div></div>
+      <div class="menu-card reveal d1" data-category="drinks"><div class="menu-img-wrap"><img class="menu-img" src="https://images.unsplash.com/photo-1609951651556-5334e270e3de?w=600&q=80" alt="Craft Beer" loading="lazy"></div><div class="menu-body"><h3>Craft Beer</h3><p>Locally brewed, ice-cold pale ale — the perfect bar companion.</p><div class="menu-foot"><span class="menu-price">R45</span><span class="menu-tag">Drinks</span></div></div></div>
+      <div class="menu-card reveal d2" data-category="drinks"><div class="menu-img-wrap"><img class="menu-img" src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600&q=80" alt="Mojito" loading="lazy"></div><div class="menu-body"><h3>Mojito</h3><p>Classic cocktail with mint and lime, shaken fresh to order.</p><div class="menu-foot"><span class="menu-price">R60</span><span class="menu-tag">Cocktails</span></div></div></div>
+      <div class="menu-card reveal d3" data-category="food"><div class="menu-img-wrap"><img class="menu-img" src="https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?w=600&q=80" alt="Chicken Wings" loading="lazy"></div><div class="menu-body"><h3>Sticky Chicken Wings</h3><p>Slow-cooked wings in sweet chilli &amp; garlic glaze. Bar staple.</p><div class="menu-foot"><span class="menu-price">R75</span><span class="menu-tag">Must Try</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="alt">
+  <div class="container">
+    <div class="sh-center reveal" style="margin-bottom:48px;">
+      <div class="eyebrow">Gallery</div>
+      <h2 class="section-title">The Isong Experience</h2>
+      <div class="underline-accent"></div>
+      <p class="section-sub">A glimpse of the vibes, food, and moments that keep people coming back.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gal-item reveal"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80" alt="Restaurant ambiance" loading="lazy"><div class="gal-overlay"><span>Restaurant Ambiance</span></div></div>
+      <div class="gal-item reveal d1"><img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&q=80" alt="Bar area" loading="lazy"><div class="gal-overlay"><span>Our Bar</span></div></div>
+      <div class="gal-item reveal d2"><img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=600&q=80" alt="Grilled dishes" loading="lazy"><div class="gal-overlay"><span>Off the Grill</span></div></div>
+      <div class="gal-item reveal d3"><img src="https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=600&q=80" alt="Cocktails" loading="lazy"><div class="gal-overlay"><span>Cocktails</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="navy">
+  <div class="container">
+    <div class="sh-center reveal" style="margin-bottom:48px;">
+      <div class="eyebrow">What People Say</div>
+      <h2 class="section-title">Loved by the Community</h2>
+      <div class="underline-accent"></div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal d1"><div class="rev-stars">★★★★★</div><p class="rev-text">"Best grill spot in the area. The steak was perfect and the fireplace seating is everything in winter. Will definitely be back."</p><div class="rev-author"><div class="rev-avatar">T</div><div><div class="rev-name">Thabo M.</div><div class="rev-loc">Google Review · Rustenburg</div></div></div></div>
+      <div class="review-card reveal d2"><div class="rev-stars">★★★★★</div><p class="rev-text">"Great vibes, affordable prices, and the staff are super friendly. Brought my whole family here on the weekend — everyone loved it."</p><div class="rev-author"><div class="rev-avatar">N</div><div><div class="rev-name">Nomsa K.</div><div class="rev-loc">Google Review · Mabeskraal</div></div></div></div>
+      <div class="review-card reveal d3"><div class="rev-stars">★★★★☆</div><p class="rev-text">"The wings and craft beer combo is unbeatable. Perfect after-work spot. Parking is easy and the place is always clean."</p><div class="rev-author"><div class="rev-avatar">L</div><div><div class="rev-name">Lerato D.</div><div class="rev-loc">Google Review · Rustenburg</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking">
+  <div class="container">
+    <div class="booking-wrap">
+      <div class="reveal">
+        <div class="eyebrow">Reservations</div>
+        <h2 class="section-title">Book a Table</h2>
+        <div class="underline-accent"></div>
+        <p class="bk-p">Reserve your spot at Isong Cafe. We recommend booking ahead, especially on weekends. Walk-ins always welcome when available.</p>
+        <div class="bk-detail"><div class="bk-icon"><i class="fas fa-clock"></i></div><div class="bk-txt"><strong>Opening Hours</strong><span>Daily: 10:00 AM – 11:00 PM</span></div></div>
+        <div class="bk-detail"><div class="bk-icon"><i class="fas fa-phone"></i></div><div class="bk-txt"><strong>Call Directly</strong><a href="tel:0761416139">076 141 6139</a></div></div>
+        <div class="bk-detail"><div class="bk-icon"><i class="fas fa-envelope"></i></div><div class="bk-txt"><strong>Email Us</strong><a href="mailto:isongcafe11@gmail.com">isongcafe11@gmail.com</a></div></div>
+      </div>
+      <div class="reveal d2">
+        <form class="bk-form" id="booking-form" action="https://formspree.io/f/xyznryaj" method="POST" aria-label="Table reservation form" novalidate>
+          <div class="fg"><label for="name">Full Name</label><input type="text" id="name" name="name" placeholder="e.g. Thabo Molefe" required></div>
+          <div class="fg-row">
+            <div class="fg"><label for="date">Date</label><input type="date" id="date" name="date" required></div>
+            <div class="fg"><label for="time">Time</label><input type="time" id="time" name="time" required></div>
+          </div>
+          <div class="fg"><label for="party">Party Size</label>
+            <select id="party" name="party" required>
+              <option value="" disabled selected>How many people?</option>
+              <option value="1">Just me</option><option value="2">2 people</option><option value="3">3 people</option>
+              <option value="4">4 people</option><option value="5">5 people</option>
+              <option value="6-10">6–10 people</option><option value="10+">10+ people</option>
+            </select>
+          </div>
+          <div class="fg"><label for="comments">Special Requests <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:.8rem;">(optional)</span></label><textarea id="comments" name="comments" placeholder="Dietary needs, occasion, seating preference..."></textarea></div>
+          <button type="submit" class="btn-submit"><i class="fas fa-calendar-check"></i> Confirm Reservation</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="alt">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:48px;">
+      <div class="eyebrow">Find Us</div>
+      <h2 class="section-title">Contact & Location</h2>
+      <div class="underline-accent"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="contact-items">
+          <div class="ci"><div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div><div class="ci-text"><strong>Address</strong><span>R565, Rustenburg, Mabeskraal, 0313</span></div></div>
+          <div class="ci"><div class="ci-icon"><i class="fas fa-phone"></i></div><div class="ci-text"><strong>Phone</strong><a href="tel:0761416139">076 141 6139</a></div></div>
+          <div class="ci"><div class="ci-icon"><i class="fas fa-envelope"></i></div><div class="ci-text"><strong>Email</strong><a href="mailto:isongcafe11@gmail.com">isongcafe11@gmail.com</a></div></div>
+          <div class="ci"><div class="ci-icon"><i class="fas fa-clock"></i></div><div class="ci-text"><strong>Hours</strong><span>Daily: 10:00 AM – 11:00 PM</span></div></div>
+          <div class="ci"><div class="ci-icon"><i class="fas fa-location-arrow"></i></div><div class="ci-text"><strong>Plus Code</strong><span>RQ4W+R5 Mabeskraal</span></div></div>
+        </div>
+        <div class="social-row">
+          <a href="https://www.facebook.com/p/Isong-Cafe-100063795255389/" target="_blank" rel="noopener" class="soc" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="tel:0761416139" class="soc" aria-label="Call"><i class="fas fa-phone"></i></a>
+          <a href="mailto:isongcafe11@gmail.com" class="soc" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="map-box reveal d2">
+        <iframe src="https://www.google.com/maps?q=RQ4W%2BR5+Mabeskraal%2C+South+Africa&hl=en&z=17&output=embed" style="border:0;width:100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Isong Cafe on Google Maps"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AMENITIES -->
+<section id="amenities">
+  <div class="container">
+    <div class="sh-center reveal" style="margin-bottom:48px;">
+      <div class="eyebrow">The Details</div>
+      <h2 class="section-title">Amenities & Payments</h2>
+      <div class="underline-accent"></div>
+    </div>
+    <div class="amen-grid">
+      <div class="amen-card reveal d1"><h3><i class="fas fa-store"></i> Facilities</h3><ul class="amen-list"><li>Bar on site</li><li>Clean restrooms</li><li>High chairs available</li><li>Fireplace lounge area</li></ul></div>
+      <div class="amen-card reveal d2"><h3><i class="fas fa-credit-card"></i> Payments</h3><ul class="amen-list"><li>Credit &amp; debit cards</li><li>NFC mobile payments</li><li>Cash accepted</li></ul></div>
+      <div class="amen-card reveal d3"><h3><i class="fas fa-parking"></i> Parking</h3><ul class="amen-list"><li>Free street parking</li><li>Free parking lot</li><li>Ample space</li><li>Safe &amp; well-lit</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo"><strong>Isong</strong> <span>Cafe</span></div>
+        <p>Your cozy bar &amp; grill in Mabeskraal, Rustenburg. Great food, cold drinks, and warm vibes — daily from 10AM to 11PM.</p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/p/Isong-Cafe-100063795255389/" target="_blank" rel="noopener" class="footer-soc"><i class="fab fa-facebook-f"></i></a>
+          <a href="tel:0761416139" class="footer-soc"><i class="fas fa-phone"></i></a>
+          <a href="mailto:isongcafe11@gmail.com" class="footer-soc"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#menu">Menu</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#booking">Book a Table</a></li><li><a href="#contact">Contact</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul><li><a href="tel:0761416139">076 141 6139</a></li><li><a href="mailto:isongcafe11@gmail.com">isongcafe11@gmail.com</a></li><li><a href="#">R565, Mabeskraal, 0313</a></li><li><a href="#">Mon–Sun: 10AM – 11PM</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Isong Cafe. All rights reserved.</p>
+      <p>Plus Code: RQ4W+R5 Mabeskraal</p>
+    </div>
+  </div>
+</footer>
+
+<a href="tel:0761416139" class="float-call" aria-label="Call Isong Cafe"><i class="fas fa-phone"></i> Call to Book</a>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="./script.js"></script>
 </body>
 </html>
